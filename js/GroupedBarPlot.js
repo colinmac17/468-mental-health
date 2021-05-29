@@ -51,7 +51,7 @@ class GroupedBarPlot {
             //Add Color
             let color = d3.scaleOrdinal()
                 .domain(populations)
-                .range(['#7C3AED','#DDD6FE'])
+                .range(['#2563EB','#DBEAFE'])
 
 
             //Create a tooltip
@@ -77,7 +77,7 @@ class GroupedBarPlot {
                         }
                     })
                     tooltip
-                        .html("<b class='text-purple-800'>" + disorder + "</b> in the " + "<b>" + d.key + "</b><br>" + "Prevalence: " + d.value + "%")
+                        .html("<b class='text-blue-800'>" + disorder + "</b> in the " + "<b>" + d.key + "</b><br>" + "Prevalence: " + d.value + "%")
                         .style("opacity", 1)
                 }
                 let mousemove = function(d) {
