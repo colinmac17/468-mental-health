@@ -70,6 +70,7 @@ class GroupedBarPlot {
                 let mouseover = function(d) {
                     let disorder;
                     let k = d.key
+                    //This is to get the disorder
                     data.forEach(dat => {
                         if(dat[k] == d.value){
                             console.log(dat["Disorder"])
