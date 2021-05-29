@@ -8,8 +8,6 @@
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="pie-chart.js"></script>
 
-<!-- <h3>If you have been diagnosed with a mental health condition, was it an Anxiety Disorder (Generalized, Social, Phobia, etc) or Mood Disorder (Depression, Bipolar Disorder, etc)?</h3> -->
-<h5></h5>
 <!-- Create a div where the graph will take place -->
 <div id="pie_chart"></div>
 <script>
@@ -18,6 +16,7 @@
     pieChartMaker.drawPieChart();
 
     pieChartMaker.PieDispatch.on("clicked", (key) => {
+        // We can create the bar chart here
         console.log("Clicked!: " + key);
     })
 
