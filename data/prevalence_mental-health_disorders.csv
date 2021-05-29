@@ -1,3 +1,10 @@
-Population,Anxiety Disorder,Mood Disorder,ADHD,PTSD,Personality Disorder,OCD,Substance Use Disorder,Addictive Disorder,Eating Disorder
-General Population,31.1,8.9,8.1,6.8,9.1,2.3,8,4.4,2.1
-Tech Study,26,36.7,9.4,4.9,2,2.8,1.8,1,1.3
+Disorder,Tech Industry,General Population
+Anxiety Disorder,26,31.1
+Mood Disorder,36.7,8.9
+ADHD,9.4,8.1
+PTSD,4.9,6.8
+Personality Disorder,2,9.1
+OCD,2.8,2.3
+Substance Use Disorder,1.8,8
+Addictive Disorder,1,4.4
+Eating Disorder,1.3,2.1
