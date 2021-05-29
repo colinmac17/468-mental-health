@@ -20,7 +20,8 @@ class GroupedBarPlot {
 
         let dispatch = this.BarPlotDispatch
 
-        d3.csv("/data/prevalence_mental-health_disorders.csv", function(data) {
+        //Pull Data from Flask Server
+        d3.csv("/csv/prevalence", function(data) {
 
             //Get the types of disorders
             let populations = data.columns.slice(1)
