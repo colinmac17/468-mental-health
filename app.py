@@ -29,6 +29,7 @@ def startup(path):
     return send_from_directory('.', path)
 
 # Converts our prevalence csv data into a readable string
+# We can follow this pattern for other data sets we need to fetch
 @app.route('/csv/prevalence')
 def get_data():
     return dataToCSVStr(prevalence_header, prevalence_string_data)
