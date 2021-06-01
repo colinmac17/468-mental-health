@@ -1,20 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
-    <!--TailWind.css @see https://tailwindcss.com/docs-->
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="main.css" rel="stylesheet">
-    <!--D3.js-->
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <title>Pictogram</title>
+<head>	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   
 </head>
+
 <body>
-    
+    <svg id="isoSvg" width="600" height="250"></svg>
+   <h2> Number of Female vs Male Respondents with their Respective Incidences of Clinically Diagnosed Anxiety and Depression</h2> 
+    <h3>Hover over icons to learn more!</h3>
+    <h4></h4>
+      
 </body>
-</html>
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+var w = 400;
+var h = 400;
+
+var maleIcon = "\uf183";
+var femaleIcon = "\uf182";
+
+var fontSize = 24;
+var iconSpace = 3;
+var legendSpace = 20;
+var legendX = 300;
+var legendY = 20;
+var legendTitle = "Totals:";
+//B P W
+var colorsArr = ["#676cc9", "#c9677e", "#e3e1e1", "#ded7d1"];
+var legendArr = ["Male Respondents to Survey", "Female Respondents to Survey", "Respondents Diagnosed with Anxiety or Depression", "Respondents Either Unafflicted or Undiagnosed"]
+var dataIcons = [[colorsArr[0], maleIcon], [colorsArr[1], femaleIcon], [colorsArr[0], maleIcon], [colorsArr[2], maleIcon]];
+var dataIcons2 = [[colorsArr[2], maleIcon, legendArr[0]], [colorsArr[3], femaleIcon, legendArr[1]], [colorsArr[1], femaleIcon, legendArr[2]], [colorsArr[3], femaleIcon, legendArr[3]]];
+var dataText = ["75% of the total respondents were Male. Of these Male respondents, 38% were diagnosed with anxiety or depression. When weighted, 17 out of the 44 diagnosed are Male.", "25% of the total respondents were Female. Of these Female respondents, 60% were diagnosed with anxiety or depression. When weighted, 26 of the 44 diagnosed are Female. Women in tech are 53% MORE likely to be diagnosed with anxiety or depression than men.", "How many more of the remaining 56 workers in tech still suffer but without a diagnosis?" ];
+var dataText2 = ["44 out of every 100 workers in the tech industry have been diagnosed with anxiety or depression"]
+
+var data = [[colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], 
+            [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]],
+            [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]],
+            [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]]    
+            ]; 
+
+function updateText(className, newText){
+	$(className).text(newText);
+}
+
+var isoSvg = d3.select("#isoSvg");
+
+function plotPictogramChart(d, svg) {	
+    var row = 0;
+    
+    svg.attr("transform", "translate(0, 0)");
+/*	var chart = d3.select("svg")
+					.attr("transform", "translate(0, 0)"); */
+	var icons = svg.selectAll("g")
+					.data(d).enter()
+                        .append("g");
+    
+icons.append("text")
+		.on("mouseover", function(d){ updateText("h3", d[2]), updateText("h4", dataText2[0]); })
+		.attr("x", function(d, i){ return ((i%10 + 1) * (fontSize + 1 + iconSpace)) - fontSize;})
+		.attr("y", function(d, i){ if(i%10 == 0){row++}; return row * fontSize;})
+		.attr('font-family', 'FontAwesome')
+		.attr('font-size', fontSize)
+		.attr("fill", function(d){ return d[0];})
+        .text(function(data) { return "\u00A0 " + data[1]; });
+
+}
+
+plotPictogramChart(data, isoSvg);
+
+var isoSvg = d3.select("#isoSvg");
+
+var legend = isoSvg.append('g')
+		.attr('class', 'legend')
+		.attr('transform', function(data, i) { return "translate(" + legendX + ", " + legendY + ")"; });
+	
+	legend.append("text")
+		.attr("transform", "translate(0, 5)")
+		.text(legendTitle);
+		
+	var legendItems = legend.selectAll("g")
+		.data(dataIcons).enter()
+			.append("g")
+			.attr("class", "item")
+			.attr("transform", function(data, i){ return "translate(0, " + (i*legendSpace + fontSize) + ")"; });
+        
+	legendItems.append("text")
+		.attr('font-family', 'FontAwesome')
+		.text(function(data) { return data[1]; })
+        .attr("fill", function(data){ return data[0];})
+    
+    var legendItems2 = legend.selectAll("g")
+		.data(dataIcons2).enter()
+			.append("g")
+			.attr("class", "item")
+			.attr("transform", function(data, i){ return "translate(0, " + (i*legendSpace + fontSize) + ")"; });
+		
+	legendItems.append("text")
+		.attr('font-family', 'FontAwesome')
+		.attr("transform", function(data){ return "translate(19 , 0)"; })
+		.text(function(data) { return data[1]; })
+		.attr("fill", function(data){ return data[0];})
+    
+	legendItems.append("text")
+		.attr("transform", function(data){ return "translate(40.5" + legendSpace + ", 0)"; })
+        .text(function(data) { return data[2]; })
+        .attr("font-size", "12");
+
+</script>
