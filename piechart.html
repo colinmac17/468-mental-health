@@ -15,7 +15,7 @@
     <link href="main.css" rel="stylesheet">
 
 <!-- Create a div where the graph will take place -->
-<div id="pie_chart"></div>
+<div id="pie_chart" style="cursor: pointer;"></div>
 <script>
 
     var pieChartMaker = new PieChartMaker();
@@ -24,6 +24,11 @@
     pieChartMaker.PieDispatch.on("clicked", (key) => {
         // We can create the bar chart here
         console.log("Clicked!: " + key);
+        if(key === "Other"){
+            window.location = "/Disorder_Frequency/DisorderFrequencyBarOther.html"
+        } else {
+            window.location = "/Disorder_Frequency/DisorderFrequencyBarAnxiety.html"
+        }
     })
 
 </script>
