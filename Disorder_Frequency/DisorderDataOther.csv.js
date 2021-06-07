@@ -1,4 +1,4 @@
-﻿var sortBarData = `Position,Count
+﻿var sortBarDataOther = `Position,Count
 Back-End,86
 Front-End,82
 Devops,51
