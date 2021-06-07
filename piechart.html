@@ -25,7 +25,7 @@
 <!-- Create svgs where the graphs will take place -->
 
 <svg id="pie-chart" width="450" height="450"></svg>
-<svg id="bar-chart" width="960" height="585"></svg>
+<svg id="bar-chart" width="600" height="585"></svg>
 
 
 <script>
@@ -67,7 +67,7 @@
             drawSortBarOther(svg, barData, x, y, height);
         } else {
             var margin = { top: 20, right: 20, bottom: 20, left: 70 },
-                width = 960 - margin.left - margin.right,
+                width = 600 - margin.left - margin.right,
                 height = 585 - margin.top - margin.bottom;
 
             var x = d3.scaleBand()
