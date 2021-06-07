@@ -2,10 +2,9 @@
 <head>	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-
 		.container { 
 			border: 3px #ccc solid;
-			padding-left: 15px;
+			padding: 5px;
 			height: 100%;
   			width: 45%;
 		 }
@@ -14,14 +13,12 @@
 
 <body>
 	<svg id="isoSvg" width="700" height="320"></svg>
-	<!--<svg id="isoSvgG" width="400" height="250"></svg>--> 
-	
-	<div class="container">
-   	<h2> Mental Heath in Tech Survery Overview: Respondents' Reported Gender and Incidence of Clinically Diagnosed Anxiety & Depression</h2> 
+
+<div class="container">
+   	<h2> Mental Heath in Tech Survey Overview: Respondents' Reported Incidence of Clinically Diagnosed Anxiety & Depression with Gender</h2> 
     <h3>Hover over icons to learn more!</h3>
-	<!--<h4></h4>-->
 	<p id="para"></p>
-	<!--<svg id="isoSvgG" width="400" height="250"></svg>-->
+	<svg id="isoSvgGender" width="600" height="50"></svg>
 </div>
 
 </body>
@@ -42,33 +39,35 @@ var legendSpace = 20;
 var legendX = 300;
 var legendY = 20;
 var legendTitle = "Totals:";
-//B P W
-var colorsArr = ["#676cc9", "#c9677e", "#e3e1e1", "#ded7d1"];
+
+var colorsArr = ["#676cc9", "#c9677e", "#e3e1e1", "#ded7d1", "#ffffff"];
 var legendArr = ["Male Respondents to Survey", "Female Respondents to Survey", "Respondents Diagnosed with Anxiety or Depression", "Respondents Either Unafflicted or Undiagnosed"]
 var dataIcons = [[colorsArr[0], maleIcon], [colorsArr[1], femaleIcon], [colorsArr[0], maleIcon], [colorsArr[2], maleIcon]];
 var dataIcons2 = [[colorsArr[2], maleIcon, legendArr[0]], [colorsArr[3], femaleIcon, legendArr[1]], [colorsArr[1], femaleIcon, legendArr[2]], [colorsArr[3], femaleIcon, legendArr[3]]];
-//var dataText = ["75% of the total respondents were Male. Of these Male respondents, 38% were diagnosed with anxiety or depression. When weighted, 17 out of the 44 diagnosed are Male.", "25% of the total respondents were Female. Of these Female respondents, 60% were diagnosed with anxiety or depression. When weighted, 27 of the 44 diagnosed are Female. Women in tech are 53% MORE likely to be diagnosed with anxiety or depression than men.", "How many more of the remaining 56 workers in tech still suffer but without a diagnosis?" ];
-var dataText = ["76 out of 100 of the total respondents were Male. 29 of those 76 (38% of Males) were diagnosed with anxiety or depression", "24 out of 100 of the total respondents were Female. 14 of those 24 (59% of Females) were diagnosed with anxiety or depression", "How many more of the remaining 56 workers in tech still suffer but without a diagnosis?" ];
 
-var dataText2 = ["44 out of every 100 workers in the tech industry have been diagnosed with anxiety or depression"]
+var dataText = ["76 of 100 respondents were Male. 29 of them were diagnosed with anxiety or depression. That means at least 38% of Males working in the tech industry suffer from anxiety or depression:", "24 of 100 respondents were Female. 14 of them were diagnosed with anxiety or depression. That means at least 59% of Females working in the tech industry suffer from anxiety or depression:", "How many more of the remaining 56 workers in tech still suffer but without a diagnosis?" ];
+var dataText2 = ["44 out of every 100 workers in the tech industry have been diagnosed with anxiety or depression"];
 
-/*var data = [[colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], 
-            [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]],
-            [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]],
-            [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]]    
-            ]; */
-
+//Matrix for larger Pictogram. Nested arrays contain info for each icon to be rendered: color, icon image based on gender, text for mouseover
 var data = [[colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], [colorsArr[0], maleIcon, dataText[0], dataText2[0]], 
 			[colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], 
 			[colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], 
 			[colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]]
 			]; 
+		
 
-var dataG = [[colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], 
-			[colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]]
+//Matrices for mini (mouseover) pictograms
+var dataM = [
+				[colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[0], maleIcon, dataText[0]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]], [colorsArr[2], maleIcon, dataText[2]]
             ]; 
-            
+var dataF = [
+				[colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[1], femaleIcon, dataText[1]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]], [colorsArr[3], femaleIcon, dataText[2]]
+			]; 
+var dataEmpty = [
+				[colorsArr[4], maleIcon, dataText[1]]
+			]; 
 
+//jquery functions update text (called on mouseover)
 function updateText(className, newText){
 	$(className).text(newText);
 }
@@ -78,74 +77,89 @@ function updateTextByID(className, newText){
 }
 
 var isoSvg = d3.select("#isoSvg");
-var isoSvgG = d3.select("#isoSvgG");
+var isoSvgGender = d3.select("#isoSvgGender");
 
-/////////////////////////////
+//Funtion to plot main pictogram
 function plotPictogramChart(d, svg) {	
     var row = 0;
     
     svg.attr("transform", "translate(0, 0)");
-/*	var chart = d3.select("svg")
-					.attr("transform", "translate(0, 0)"); */
+
 	var icons = svg.selectAll("g")
 					.data(d).enter()
                         .append("g");
-    
-icons.append("text")
-		.on("mouseover", function(d){ updateText("h3", dataText2[0]), updateTextByID("para", d[2]), plotPictogramChartG(dataG, isoSvgG); })
+
+//Adds the icons to the pictogram    
+	icons.append("text")
+		//catches mouseover event and calls functions to update text 
+		.on("mouseover", function(d){ updateText("h3", dataText2[0]), updateTextByID("para", d[2]), determineGenderChart(d[2]); })
 		.attr("x", function(d, i){ return ((i%10 + 1) * (fontSize + 1 + iconSpace)) - fontSize;})
 		.attr("y", function(d, i){ if(i%10 == 0){row++}; return row * fontSize;})
 		.attr('font-family', 'FontAwesome')
 		.attr('font-size', fontSize)
 		.attr("fill", function(d){ return d[0];})
         .text(function(data) { return "\u00A0 " + data[1]; });
-
-}
-////////////////////////////
-function plotPictogramChartG(d, svg) {	
-    var row = 0;
-    
-    svg.attr("transform", "translate(-500, 100)");
-/*	var chart = d3.select("svg")
-					.attr("transform", "translate(0, 0)"); */
-	var icons = svg.selectAll("g")
-					.data(d).enter()
-                        .append("g");
-    
-icons.append("text")
-		//.on("mouseover", function(d){updateText("para", dataText2[0]); })
-		.attr("x", function(d, i){ return ((i%10 + 1) * (fontSize + 1 + iconSpace)) - fontSize;})
-		.attr("y", function(d, i){ if(i%10 == 0){row++}; return row * fontSize;})
-		.attr('font-family', 'FontAwesome')
-		.attr('font-size', fontSize)
-		.attr("fill", function(d){ return d[0];})
-        .text(function(data) { return "\u00A0 " + data[1]; });
-
 }
 
 plotPictogramChart(data, isoSvg);
-//plotPictogramChartG(dataG, isoSvgG);
 
+//Funtion to determine which mini pictogram to render upon mouseover
+function determineGenderChart (data){
+	if (data == dataText[0] ){
+		return plotChartGender(dataM, isoSvgGender);
+	}
+
+	if (data == dataText[1] ){
+		 return plotChartGender(dataF, isoSvgGender);
+	}
+	else return plotChartGender(dataEmpty, isoSvgGender);
+}
+
+//Funtion to plot mini pictogram 
+function plotChartGender(d, svg) {	
+
+	svg.selectAll("g").remove();
+	var row = 0;
+    svg.attr("transform", "translate(200, 0)");
+
+	var icons = svg.selectAll("g")
+					.data(d).enter()
+                        .append("g");
+    
+icons.append("text")
+		.attr("x", function(d, i){ return ((i%10 + 1) * (fontSize + 1 + iconSpace)) - fontSize;})
+		.attr("y", function(d, i){ if(i%10 == 0){row++}; return row * fontSize;})
+		.attr('font-family', 'FontAwesome')
+		.attr('font-size', fontSize)
+		.attr("fill", function(d){ return d[0];})
+		.text(function(data) { return data[1]; });
+}
+
+//Create Legend
 var isoSvg = d3.select("#isoSvg");
 
 var legend = isoSvg.append('g')
 		.attr('class', 'legend')
 		.attr('transform', function(data, i) { return "translate(" + legendX + ", " + legendY + ")"; });
-	
+
+//Adds title
 	legend.append("text")
 		.attr("transform", "translate(70, 5)")
-		.text(legendTitle);
-		
+		.text(legendTitle)
+		.attr("font-size", "18");
+
 	var legendItems = legend.selectAll("g")
 		.data(dataIcons).enter()
 			.append("g")
 			.attr("class", "item")
 			.attr("transform", function(data, i){ return "translate(70, " + (i*legendSpace + fontSize) + ")"; });
-        
+
+			//Adds left icons for legend
 	legendItems.append("text")
 		.attr('font-family', 'FontAwesome')
 		.text(function(data) { return data[1]; })
-        .attr("fill", function(data){ return data[0];})
+		.attr("fill", function(data){ return data[0];})
+		.attr("font-size", "18");
     
     var legendItems2 = legend.selectAll("g")
 		.data(dataIcons2).enter()
@@ -153,20 +167,18 @@ var legend = isoSvg.append('g')
 			.attr("class", "item")
 			.attr("transform", function(data, i){ return "translate(0, " + (i*legendSpace + fontSize) + ")"; });
 		
+//Adds right icons for legend
 	legendItems.append("text")
 		.attr('font-family', 'FontAwesome')
 		.attr("transform", function(data){ return "translate(19 , 0)"; })
 		.text(function(data) { return data[1]; })
 		.attr("fill", function(data){ return data[0];})
-    
+		.attr("font-size", "18");
+
+//Adds legend descriptors 
 	legendItems.append("text")
 		.attr("transform", function(data){ return "translate(40.5" + legendSpace + ", 0)"; })
         .text(function(data) { return data[2]; })
-        .attr("font-size", "12");
-
-
-
-
-
-
+		.attr("font-size", "12");
+		
 </script>
