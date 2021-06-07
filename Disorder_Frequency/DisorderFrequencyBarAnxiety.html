@@ -39,8 +39,8 @@ svg.append("text")
     .style("text-anchor", "middle")
 	.text("Frequency");
 
-var barData = d3.csvParse(sortBarData)
+var barData = d3.csvParse(sortBarDataAnxiety)
 
-drawSortBar(svg,barData);
+drawSortBarAnxiety(svg,barData, x, y, height);
 
 </script>

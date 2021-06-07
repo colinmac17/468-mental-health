@@ -41,6 +41,12 @@ class PieChartMaker {
             .style("text-anchor", "middle")
             .style("font-size", "13px")
             .text("Mood Disorder: Depression, Bipolar Disorder, etc")
+        svg.append("text")
+            .attr("x", 0)
+            .attr("y", 0 - height / 2 + 85)
+            .style("text-anchor", "middle")
+            .style("font-size", "13px")
+            .text("Click a slice to see the breakdown of diagnoses by occupation")
 
         // Just hardcoded the data for now, since its only two values    
         var data = { "Anxiety and/or Mood Disorder": 632, "Other": 84 }
