@@ -27,31 +27,20 @@ class PieChartMaker {
             .style("text-anchor", "middle")
             .style("font-size", "16px")
             .style("text-decoration", "underline")
-            .text("Diagnosed Anxiety and/or Mood Disorders Versus Other")
+            .text("Diagnosed with Anxiety and/or Depression Versus Other")
 
         // Adding data descriptions
-        svg.append("text")
-            .attr("x", 0)
-            .attr("y", 0 - height / 2 + 45)
-            .style("text-anchor", "middle")
-            .style("font-size", "13px")
-            .text("Anxiety Disorder: Generalized, Social, Phobia, etc")
+
         svg.append("text")
             .attr("x", 0)
             .attr("y", 0 - height / 2 + 65)
-            .style("text-anchor", "middle")
-            .style("font-size", "13px")
-            .text("Mood Disorder: Depression, Bipolar Disorder, etc")
-        svg.append("text")
-            .attr("x", 0)
-            .attr("y", 0 - height / 2 + 85)
             .style("text-anchor", "middle")
             .style("font-size", "14px")
             .style("font-weight", "bold")
             .text("Click a slice to see the breakdown of diagnoses by occupation")
 
         // Just hardcoded the data for now, since its only two values    
-        var data = { "Anxiety and/or Mood Disorder": 632, "Other": 84 }
+        var data = { "Anxiety and/or Depression": 632, "Other": 84 }
 
         // set the color scale
         var color = d3.scaleOrdinal()
@@ -72,18 +61,6 @@ class PieChartMaker {
         // Get Dispatch
         var dispatch = this.PieDispatch;
 
-        // Create tooltip for mouse hover
-        let tooltip = d3.select("body")
-                        .append("svg")
-                        .append("opacity", 0)
-                        .attr("class", "tooltip")
-                        .style("background-color", "white")
-                        .style("border", "solid")
-                        .style("border-width", "1px")
-                        .style("border-radius", "5px")
-                        .style("padding", "10px")
-
-
         // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
         svg
             .selectAll('mySlices')
@@ -100,13 +77,19 @@ class PieChartMaker {
             })
             .on("mouseover", function (d) {
                 console.log("mouseover: " + d.data.key);
-                if (d.data.key == "")
-                tooltip
-                    .html(d.data.value + " out of 716 total people diagnosed were diagnosed with " + d.data.key)
-                    .style("opacity", 1)
+                d3.select("#tooltip")
+                    .append("text")
+                    .attr("x", 0 + width / 2)
+                    .attr("y", 50)
+                    .style("text-anchor", "middle")
+                    .style("font-size", "14px")
+                    .html(d.data.value + " out of 716 were diagnosed with " + d.data.key)
+            })
+            .on("mouseleave", function (d) {
+                d3.select("#tooltip").selectAll("text").remove();
             })
 
-        // Now add the annotation. Use the centroid method to get the best coordinates
+        // Pie slice labels
         svg
             .selectAll('mySlices')
             .data(data_ready)
