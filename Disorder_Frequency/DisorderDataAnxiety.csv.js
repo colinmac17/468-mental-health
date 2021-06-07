@@ -1,4 +1,4 @@
-﻿var sortBarData = `Position,Count
+﻿var sortBarDataAnxiety = `Position,Count
 Back-End,372
 Front-End,191
 Devops,104

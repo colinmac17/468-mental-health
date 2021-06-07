@@ -1,4 +1,4 @@
-var drawSortBar = function(svg, data) {
+var drawSortBarAnxiety = function(svg, data, x, y, height) {
 
   x.domain(data.map(function(d) { return d.Position; }));
 

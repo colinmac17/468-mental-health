@@ -6,6 +6,9 @@ class PieChartMaker {
 
     drawPieChart() {
 
+        var anxDepLabel = "Anxiety and/or Mood Disorder";
+        var otherLabel = "Other"
+
         var width = 450;
         var height = 450;
         var margin = 100;
@@ -13,10 +16,7 @@ class PieChartMaker {
         var radius = Math.min(width, height) / 2 - margin
 
         // Create svg with the origin translated to the center
-        var svg = d3.select("body")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
+        var svg = d3.select("#pie-chart")
             .append("g")
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
@@ -64,6 +64,18 @@ class PieChartMaker {
         // Get Dispatch
         var dispatch = this.PieDispatch;
 
+        // Create tooltip for mouse hover
+        let tooltip = d3.select("body")
+                        .append("svg")
+                        .append("opacity", 0)
+                        .attr("class", "tooltip")
+                        .style("background-color", "white")
+                        .style("border", "solid")
+                        .style("border-width", "1px")
+                        .style("border-radius", "5px")
+                        .style("padding", "10px")
+
+
         // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
         svg
             .selectAll('mySlices')
@@ -78,6 +90,13 @@ class PieChartMaker {
             .on("click", function (d) {
                 dispatch.call("clicked", {}, d.data.key);
             })
+            .on("mouseover", function (d) {
+                console.log("mouseover: " + d.data.key);
+                if (d.data.key == "")
+                tooltip
+                    .html(d.data.value + " out of 716 total people diagnosed were diagnosed with " + d.data.key)
+                    .style("opacity", 1)
+            })
 
         // Now add the annotation. Use the centroid method to get the best coordinates
         svg
@@ -89,5 +108,6 @@ class PieChartMaker {
             .attr("transform", function (d) { return "translate(" + arcGenerator.centroid(d) + ")"; })
             .style("text-anchor", "middle")
             .style("font-size", 12)
+
     }
 }
