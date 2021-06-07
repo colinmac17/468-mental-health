@@ -26,6 +26,7 @@ class PieChartMaker {
             .attr("y", 0 - height / 2 + 25)
             .style("text-anchor", "middle")
             .style("font-size", "16px")
+            .style("text-decoration", "underline")
             .text("Diagnosed Anxiety and/or Mood Disorders Versus Other")
 
         // Adding data descriptions
@@ -45,7 +46,8 @@ class PieChartMaker {
             .attr("x", 0)
             .attr("y", 0 - height / 2 + 85)
             .style("text-anchor", "middle")
-            .style("font-size", "13px")
+            .style("font-size", "14px")
+            .style("font-weight", "bold")
             .text("Click a slice to see the breakdown of diagnoses by occupation")
 
         // Just hardcoded the data for now, since its only two values    
@@ -54,7 +56,7 @@ class PieChartMaker {
         // set the color scale
         var color = d3.scaleOrdinal()
             .domain(data)
-            .range(["#4393c3", "#d6604d"]);
+            .range(["steelblue", "orange"]);
 
         // Compute the position of each group on the pie:
         var pie = d3.pie()

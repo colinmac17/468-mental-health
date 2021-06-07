@@ -24,7 +24,8 @@ var drawSortBarOther = function(svg, data, x, y, height) {
       .attr("x", function(d) { return x(d.Position); })
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return height - (d.Count); })
-      .attr("height", function(d) { return (d.Count); });
+      .attr("height", function(d) { return (d.Count); })
+      .style("fill", "orange");
 
   d3.select("input").on("change", change);
 
