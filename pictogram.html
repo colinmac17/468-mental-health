@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<svg id="isoSvg" width="700" height="320"></svg>
+	<svg id="isoSvg" width="800" height="425"></svg>
 
 <div class="container">
    	<h2> Mental Heath in Tech Survey Overview: Respondents' Reported Incidence of Clinically Diagnosed Anxiety & Depression with Gender</h2> 
@@ -33,7 +33,7 @@ var h = 400;
 var maleIcon = "\uf183";
 var femaleIcon = "\uf182";
 
-var fontSize = 30;
+var fontSize = 40;
 var iconSpace = 3;
 var legendSpace = 20;
 var legendX = 300;
@@ -120,7 +120,7 @@ function plotChartGender(d, svg) {
 
 	svg.selectAll("g").remove();
 	var row = 0;
-    svg.attr("transform", "translate(200, 0)");
+    svg.attr("transform", "translate(183, 0)");
 
 	var icons = svg.selectAll("g")
 					.data(d).enter()
@@ -144,7 +144,7 @@ var legend = isoSvg.append('g')
 
 //Adds title
 	legend.append("text")
-		.attr("transform", "translate(70, 5)")
+		.attr("transform", "translate(170, 11)")
 		.text(legendTitle)
 		.attr("font-size", "18");
 
@@ -152,14 +152,14 @@ var legend = isoSvg.append('g')
 		.data(dataIcons).enter()
 			.append("g")
 			.attr("class", "item")
-			.attr("transform", function(data, i){ return "translate(70, " + (i*legendSpace + fontSize) + ")"; });
+			.attr("transform", function(data, i){ return "translate(175, " + (i*legendSpace + fontSize) + ")"; });
 
-			//Adds left icons for legend
+//Adds left-most icons for legend
 	legendItems.append("text")
 		.attr('font-family', 'FontAwesome')
 		.text(function(data) { return data[1]; })
 		.attr("fill", function(data){ return data[0];})
-		.attr("font-size", "18");
+		.attr("font-size", "19");
     
     var legendItems2 = legend.selectAll("g")
 		.data(dataIcons2).enter()
@@ -167,18 +167,18 @@ var legend = isoSvg.append('g')
 			.attr("class", "item")
 			.attr("transform", function(data, i){ return "translate(0, " + (i*legendSpace + fontSize) + ")"; });
 		
-//Adds right icons for legend
+//Adds right-most icons for legend
 	legendItems.append("text")
 		.attr('font-family', 'FontAwesome')
 		.attr("transform", function(data){ return "translate(19 , 0)"; })
 		.text(function(data) { return data[1]; })
 		.attr("fill", function(data){ return data[0];})
-		.attr("font-size", "18");
+		.attr("font-size", "19");
 
 //Adds legend descriptors 
 	legendItems.append("text")
 		.attr("transform", function(data){ return "translate(40.5" + legendSpace + ", 0)"; })
         .text(function(data) { return data[2]; })
-		.attr("font-size", "12");
+		.attr("font-size", "13");
 		
 </script>
